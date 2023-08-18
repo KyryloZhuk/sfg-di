@@ -1,9 +1,6 @@
 package com.kjcdg.sfgdi;
 
-import com.kjcdg.sfgdi.controllers.ConstructorInjectedController;
-import com.kjcdg.sfgdi.controllers.DemoController;
-import com.kjcdg.sfgdi.controllers.PropertyInjectedController;
-import com.kjcdg.sfgdi.controllers.SetterBasedController;
+import com.kjcdg.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -16,6 +13,10 @@ public class SfgDiApplication {
 		ApplicationContext context = SpringApplication.run(SfgDiApplication.class, args);
 
 		DemoController demoController = (DemoController) context.getBean("demoController");
+		I18nController i18nController = (I18nController) context.getBean("i18nController");
+
+		System.out.println("======== Profile bean");
+		System.out.println(i18nController.sayHello() + "\r\n");
 
 		System.out.println("======= Primary bean");
 		System.out.println(demoController.sayHello() + "\r\n");
